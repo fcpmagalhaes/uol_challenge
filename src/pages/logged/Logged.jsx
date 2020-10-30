@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {Container, Row, Col } from 'styled-bootstrap-grid';
+import { 
+  format, add ,
+} from 'date-fns';
+import { pt } from 'date-fns/locale';
 import ContentWrapper from './styles';
 import { H1, H2, H3, H4, H6, Text } from '../../styles';
 import { useHistory } from 'react-router-dom';
@@ -9,21 +13,33 @@ import iconCloud from '../../assets/logged/icon_cloud.svg';
 
 export default function Logged() {
   const history = useHistory();
-  const [seconds, setSeconds] = useState(0);
+  const [countDown, setcountDown] = useState(60);
+  const [time, setTime] = useState();
+  const [date, setDate] = useState();
   
   function logout() {
     history.push('/');
   }
 
   function timer(){
-    setSeconds(0);
-    const countDownTimer = new Date();
-    countDownTimer.setSeconds(countDownTimer.getSeconds() + 60);
+    setcountDown(0);
+    const countDownTimer = add(new Date(), {
+      seconds: 60,
+    })
     var x = setInterval(() => {
-      var now = new Date().getTime();
-      var distance = countDownTimer - now;
-      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      setSeconds(seconds);
+      var now = new Date();
+      var distance = countDownTimer - now.getTime();
+      var countDown = Math.floor((distance % (1000 * 60)) / 1000);
+      setcountDown(countDown);
+      setTime(`${now.getHours()}:${now.getMinutes()}`);
+      
+      const formattedDate = format(
+        now, 
+        "EEEE',' dd 'de' MMMM 'de' y",
+        {locale: pt}
+        );
+        
+      setDate(formattedDate);
       if (distance < 0) {
         clearInterval(x);
         logout();
@@ -47,8 +63,8 @@ export default function Logged() {
           </Col>
           
           <Col md={4} className="header-mid">
-            <span className="timer">11:26</span>
-            <H3>terça-feira, 17 de março de 2020</H3>
+            <span className="timer">{time}</span>
+            <H3>{date}</H3>
           </Col>
 
           <Col md={4} className="header-end">
@@ -86,7 +102,7 @@ export default function Logged() {
               </Col>
               <Col col={3} className="countDown">
                 <div>
-                  <span>{seconds}</span>
+                  <span>{countDown}</span>
                   <H4>seconds</H4>
                 </div>
               </Col>
