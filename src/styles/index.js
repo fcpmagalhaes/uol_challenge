@@ -16,6 +16,6 @@ export const H3 = styled.h3`
 `;
 
 export const Text = styled.p`
-  margin-bottom: 16px;
+  font-size: 16px;
   line-height: 20px;
 `;
