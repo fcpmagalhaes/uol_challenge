@@ -3,9 +3,7 @@ import styled from 'styled-components';
 
 export default styled.div`
   background-color: #222222;
-  color: #E0E0E0;
-  height: 800px;
-
+  
   .hello {
     margin-top: 197px;
     .ola {
@@ -16,14 +14,20 @@ export default styled.div`
   .login {
     margin-top: 173px
   }
+  .leftSide {
+   
+    color: #E0E0E0;
+    height: 100vh;
+  }
 
   .rightSide {
-  background-image: url('./background.png');
-  background-size: 150px;
-  width: 300px;
-  height: 300px;
-  border: 2px solid;
-  color: pink;
-}
-
+    .logo {
+      img {
+        max-width: 100%;
+        padding-top: 35px;
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
 `;
