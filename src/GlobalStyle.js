@@ -62,4 +62,27 @@ export default createGlobalStyle`
   .button:hover {
       filter: brightness(90%);
   }
+
+  .button-logout {
+      background: transparent;
+      width: 100%;
+      min-height: 100px;
+      color: #ffffff;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 15px;
+  }
+  .button-refresh {
+      background: #ffffff;
+      width: 100%;
+      min-height: 100px;
+      color: #C13216;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      line-height: 15px;
+  }
 `;
