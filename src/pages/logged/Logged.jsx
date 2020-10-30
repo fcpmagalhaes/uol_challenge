@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Container, Row, Col } from 'styled-bootstrap-grid';
 import ContentWrapper from './styles';
 import { H1, H2, H3, H4, H6, Text } from '../../styles';
@@ -9,9 +9,31 @@ import iconCloud from '../../assets/logged/icon_cloud.svg';
 
 export default function Logged() {
   const history = useHistory();
+  const [seconds, setSeconds] = useState(0);
+  
   function logout() {
     history.push('/');
   }
+
+  function timer(){
+    setSeconds(0);
+    const countDownTimer = new Date();
+    countDownTimer.setSeconds(countDownTimer.getSeconds() + 60);
+    var x = setInterval(() => {
+      var now = new Date().getTime();
+      var distance = countDownTimer - now;
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      setSeconds(seconds);
+      if (distance < 0) {
+        clearInterval(x);
+        logout();
+      }
+    }, 1000);
+  }
+
+  useEffect(() => {
+    timer();
+  }, []);
 
   return(
     <ContentWrapper>
@@ -64,7 +86,7 @@ export default function Logged() {
               </Col>
               <Col col={3} className="countDown">
                 <div>
-                  <span>600</span>
+                  <span>{seconds}</span>
                   <H4>seconds</H4>
                 </div>
               </Col>
