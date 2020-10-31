@@ -12,7 +12,7 @@ import iconCloud from '../../assets/logged/icon_cloud.svg';
 export default function Logged() {
   const history = useHistory();
   const [countDown, setcountDown] = useState(60);
-  const [time, setTime] = useState();
+  const [time, setTime] = useState("- : -");
   const [date, setDate] = useState();
   
   function logout() {
