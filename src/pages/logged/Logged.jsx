@@ -11,7 +11,7 @@ import iconCloud from '../../assets/logged/icon_cloud.svg';
 
 export default function Logged() {
   const history = useHistory();
-  const [countDown, setcountDown] = useState(60);
+  const [countDown, setcountDown] = useState(600);
   const [time, setTime] = useState("- : -");
   const [date, setDate] = useState();
   
@@ -56,18 +56,24 @@ export default function Logged() {
   return(
     <ContentWrapper>
       <Container fluid>
-
-        <Row className="header" alignItems="center">
-          <Col md={4}>
+        <Row className="header" mdAlignItems="center">
+          <Col md={4} sm={6} xs={6}>
             <div className="logo-header">
               <img src={ logoHeader } alt="logo-header"/>
             </div>
           </Col>
-          <Col md={4} className="header-mid">
+          <Col md={4} sm={6} xs={6} className="header-end" hiddenMdUp="true">
+              <H4 className="city">Passo Fundo - RS</H4>
+              <div>
+                <img src={ iconCloud } alt="icon-cloud"/>
+                <span className="degree">22º</span>
+              </div>           
+            </Col>
+          <Col md={4} sm={12} className="header-mid">
             <span className="timer">{time}</span>
             <H3>{date}</H3>
           </Col>
-          <Col md={4} className="header-end">
+          <Col md={4} className="header-end" hiddenMdDown="true">
             <H4>Passo Fundo - RS</H4>
             <div>
               <img src={ iconCloud } alt="icon-cloud"/>
@@ -80,7 +86,7 @@ export default function Logged() {
           <Col md={5} className='body-left' hiddenMdDown="true">
             <img src={ logoBall } alt="logo-ball"/>
           </Col>
-          <Col md={7} className="body-right">
+          <Col md={7} sm={12} className="body-right">
             <div className="content-text-first">Our mission is</div>
             <div className="sub-text">Nossa missão é</div>
             <div className="content-text">to transform the world</div>

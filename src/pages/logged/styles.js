@@ -30,7 +30,6 @@ export default styled.div`
       line-height: 61px;
       margin-left: 15.22px;
     }
-
   }
 
   .body {
@@ -86,7 +85,6 @@ export default styled.div`
         font-size: 48px;
         line-height: 61px;
         text-align: center;
-
       }
     }
     .footer-end {
@@ -95,11 +93,23 @@ export default styled.div`
         max-width: 131px;
       }
     }
-
-
   }
 
   @media only screen and (max-width: 768px) {
+    .header {
+      padding-top: 20px;
+      .header-end {
+        .city {
+          font-size: 12px;
+        }
+        .degree {
+          font-size: 37px;
+          line-height: 41px;
+          margin-left: none;
+        }
+      }
+    }
+    
     .body {
       .body-left {
         background: none;
@@ -107,8 +117,22 @@ export default styled.div`
       }
       .body-right {
         margin-bottom: 50px;
+        padding-right: 10%;
+        .content-text-first {
+          font-size: 25.5px;
+          line-height: 32.2px;
+        }
+        .content-text {
+          font-size: 44.8px;
+          line-height: 56.7px;
+        }
+        .sub-text {
+          font-size: 16.8px;
+          line-height: 21px;
+        }
       }
     }
+
     .footer {
       .footer-first {
         margin-top: 15px;
