@@ -7,8 +7,8 @@ import logo from '../../assets/login/logo.png';
 
 export default function Login() {
   const [login, setLogin] = useState({
-    user: 'email.usuario@compasso.com.br',
-    password: 'password',
+    user: '',
+    password: '',
   });
   const [error, setError] = useState(false);
 
@@ -18,20 +18,21 @@ export default function Login() {
     e.preventDefault();
     if (!error) {
       setError(true);
+      setLogin({user: 'email.usuario@compasso.com.br', password: 'password'});
     } else {
       history.push('/logged');
     }
   }
 
   return(
-      <ContentWrapper>
+      <ContentWrapper error={error}>
           <Container fluid>
           <Row>
             <Col md={6} sm={12} className="leftSide">
               <Col mdOffset={3} md={6} smOffset={1} sm={10}>
                 <Col hiddenMdUp="true">
                     <div className="logo">
-                      <img src={ logo } />
+                      <img src={ logo } alt="logo"/>
                     </div>
                 </Col>
                 <Row className="hello">
@@ -64,6 +65,16 @@ export default function Login() {
                           setLogin({...login, password: e.target.value})
                         }
                       />
+                      {error && (
+                        <div className="errorMessage">
+                          <Text>
+                            Ops, usuário ou senha inválidos.
+                          </Text>
+                          <Text>
+                            Tente novamente!
+                          </Text>
+                        </div>
+                      )}
                       <button className="button" type="submit">Continuar</button>
                     </form>
                   </section>

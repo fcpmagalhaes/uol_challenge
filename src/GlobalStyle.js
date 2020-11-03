@@ -36,12 +36,13 @@ export default createGlobalStyle`
     color: #E0E0E0;
     font-size: 16px
   }
-  /* form input:focus { 
+  form input:focus { 
     outline: none !important;
-    border-color: #719ECE;
-    box-shadow: 0 0 10px #719ECE;
-    color: white;
-} */
+    /* border-color: #719ECE;
+    box-shadow: 0 0 10px #719ECE; */
+    border-color: #E0E0E0;
+    box-shadow: 0 0 3px #E0E0E0;
+}
 
   .button {
       background: linear-gradient(90deg, #FF2D04 0%, #C13216 100%);
@@ -60,7 +61,7 @@ export default createGlobalStyle`
   }
 
   .button:hover {
-      filter: brightness(90%);
+      filter: brightness(75%);
   }
 
   .button-logout {

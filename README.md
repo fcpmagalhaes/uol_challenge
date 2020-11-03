@@ -1,12 +1,21 @@
 # Compasso UOL Challenge
 Challenge provided by Compasso UOL to a front-end developer job vacancy
 
-
 This project contains the following module:
  - client (ReactJS)
     A system that simulates a login page with countdown to expire the session after user being logged. The most focus of this implementation was reproduce exactly the layout proposed at Figma. The initial figma flow doesn't include a Mobile UI but, in this project it was created to a study case.
 
-### ⚙ Instalation
+
+### 🎥 In action:
+This application is deployed at Heroku, and you can see it at:
+https://compasso-uol-felipe-magalhaes.herokuapp.com/
+
+
+![Alt text](src/assets/preview/login.png?raw=true "Login")
+
+
+
+### ⚙️ Instalation
 
 As a React project, the installation is very simple. To run this project locally, you just need to install the dependencies and start to see the magic. ✨
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {Container, Row, Col } from 'styled-bootstrap-grid';
 import { format } from 'date-fns';
 import { pt } from 'date-fns/locale';
@@ -11,7 +11,7 @@ import iconCloud from '../../assets/logged/icon_cloud.svg';
 
 export default function Logged() {
   const history = useHistory();
-  const [countDown, setcountDown] = useState(600);
+  const [countDown, setcountDown] = useState(60);
   const [time, setTime] = useState("- : -");
   const [date, setDate] = useState();
   
@@ -51,6 +51,7 @@ export default function Logged() {
     , 1000);
     return () => clearInterval(timer);
     
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countDown]);
 
   return(
